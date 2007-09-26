@@ -30,7 +30,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #
 
-define( 'MDTEST_VERSION', "1.1" ); # Tue 25 Sep 2007
+define( 'MDTEST_VERSION', "1.1" ); # Tue 26 Sep 2007
 
 $version = false;
 $test_dirs = null;
