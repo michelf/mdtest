@@ -47,9 +47,9 @@ This paragraph host the footnote reference within a
 footnote test[^reference].
 
 [^reference]:
-	This footnote attemps to refer to another footnote. This 
-	should be impossible.[^impossible]
+	This footnote has a footnote of its own.[^nested]
 
-[^impossible]:
-	This footnote should not appear, as it is refered from 
-	another footnote, which is not allowed.
+[^nested]:
+	This footnote should appear even though as it is refered
+	from another footnote. But [^reference] should be litteral
+	since the footnote with that name has already been used.

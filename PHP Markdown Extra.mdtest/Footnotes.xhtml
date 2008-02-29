@@ -75,8 +75,13 @@ three lines, with some span-level markup like
 </li>
 
 <li id="fn:reference">
-<p>This footnote attemps to refer to another footnote. This 
-should be impossible.[^impossible]&#160;<a href="#fnref:reference" rev="footnote">&#8617;</a></p>
+<p>This footnote has a footnote of its own.<sup id="fnref:nested"><a href="#fn:nested" rel="footnote">10</a></sup>&#160;<a href="#fnref:reference" rev="footnote">&#8617;</a></p>
+</li>
+
+<li id="fn:nested">
+<p>This footnote should appear even though as it is refered
+from another footnote. But [^reference] should be litteral
+since the footnote with that name has already been used.&#160;<a href="#fnref:nested" rev="footnote">&#8617;</a></p>
 </li>
 
 </ol>
