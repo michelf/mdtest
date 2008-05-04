@@ -1,0 +1,42 @@
+~~~
+Flat
+~~~
+
+Code block starting and ending with empty lines:
+~~~
+
+
+Flat
+
+
+~~~
+
+Indented code block containing flat code block sample:
+
+	~~~
+	Flat
+	~~~
+
+Flat code block with indented code block sample:
+
+~~~
+Some text
+
+	Indented code block sample code
+~~~
+
+Flat code block with long markers:
+
+~~~~~~~~~~~~~~~~~~
+Flat
+~~~~~~~~~~~~~~~~~~
+
+Flat code block with flat code block markers of different length in it:
+
+~~~~
+In code block
+~~~
+Still in code block
+~~~~~
+Still in code block
+~~~~
