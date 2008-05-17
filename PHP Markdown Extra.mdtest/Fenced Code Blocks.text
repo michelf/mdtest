@@ -1,23 +1,23 @@
 ~~~
-Flat
+Fenced
 ~~~
 
 Code block starting and ending with empty lines:
 ~~~
 
 
-Flat
+Fenced
 
 
 ~~~
 
-Indented code block containing flat code block sample:
+Indented code block containing fenced code block sample:
 
 	~~~
-	Flat
+	Fenced
 	~~~
 
-Flat code block with indented code block sample:
+Fenced code block with indented code block sample:
 
 ~~~
 Some text
@@ -25,13 +25,13 @@ Some text
 	Indented code block sample code
 ~~~
 
-Flat code block with long markers:
+Fenced code block with long markers:
 
 ~~~~~~~~~~~~~~~~~~
-Flat
+Fenced
 ~~~~~~~~~~~~~~~~~~
 
-Flat code block with flat code block markers of different length in it:
+Fenced code block with fenced code block markers of different length in it:
 
 ~~~~
 In code block
