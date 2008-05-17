@@ -40,3 +40,10 @@ Still in code block
 ~~~~~
 Still in code block
 ~~~~
+
+Fenced code block with Markdown header and horizontal rule:
+
+~~~
+#test
+---
+~~~
