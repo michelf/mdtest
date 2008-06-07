@@ -53,3 +53,9 @@ footnote test[^reference].
 	This footnote should appear even though as it is refered
 	from another footnote. But [^reference] should be litteral
 	since the footnote with that name has already been used.
+
+ - - -
+
+Testing unusual footnote name[^1$^!"'].
+
+[^1$^!"']: Haha!
