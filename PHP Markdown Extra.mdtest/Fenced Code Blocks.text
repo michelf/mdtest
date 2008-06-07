@@ -47,3 +47,14 @@ Fenced code block with Markdown header and horizontal rule:
 #test
 ---
 ~~~
+
+Fenced code block with link definitions, footnote definition and 
+abbreviation definitions:
+
+~~~
+[example]: http://example.com/
+
+[^1]: Footnote def
+
+*[HTML]: HyperText Markup Language
+~~~
