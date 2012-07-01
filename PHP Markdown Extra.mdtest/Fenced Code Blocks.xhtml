@@ -1,9 +1,9 @@
-<pre><code>Fenced
+<pre><code>&lt;Fenced>
 </code></pre>
 
 <p>Code block starting and ending with empty lines:</p>
 
-<pre><code><br /><br />Fenced
+<pre><code><br /><br />&lt;Fenced>
 
 
 </code></pre>
@@ -11,7 +11,7 @@
 <p>Indented code block containing fenced code block sample:</p>
 
 <pre><code>~~~
-Fenced
+&lt;Fenced>
 ~~~
 </code></pre>
 
@@ -50,4 +50,32 @@ abbreviation definitions:</p>
 [^1]: Footnote def
 
 *[HTML]: HyperText Markup Language
+</code></pre>
+
+<ul>
+<li><p>In a list item with smalish indent:</p>
+
+<pre><code>#!/bin/sh
+#
+# Preload driver binary
+LD_PRELOAD=libusb-driver.so $0.bin $*
+</code></pre>
+</li>
+</ul>
+  
+<p>With HTML content.</p>
+  
+<pre><code>&lt;b>bold&lt;/b>
+</code></pre>
+
+<p>Bug with block level elements in this case:</p>
+<pre><code>  &lt;div>
+  &lt;/div>
+</code></pre>
+
+<p>Indented code block of a fenced code block:</p>
+
+<pre><code>~~~
+haha!
+~~~
 </code></pre>

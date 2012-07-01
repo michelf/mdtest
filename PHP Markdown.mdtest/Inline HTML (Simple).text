@@ -13,3 +13,9 @@ Hr's:
 
 <hr class="foo"
     id="bar" >
+
+Regression:
+
+<pre>
+#test
+</pre>

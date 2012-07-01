@@ -17,6 +17,20 @@
 <li><strong><em>test</em> test</strong></li>
 <li><strong>test <em>test</em></strong></li>
 <li><em>test <strong>test</strong></em></li>
+<li><em>test <strong>test</strong></em></li>
+<li><strong>test <em>test</em></strong></li>
+<li><strong><em>test</em> test</strong></li>
+<li><em><strong>test</strong> test</em></li>
+<li><strong><em>test</em> test</strong></li>
+<li><strong>test <em>test</em></strong></li>
+<li><em>test <strong>test</strong></em></li>
+<li><em>test <strong>test</strong></em></li>
+<li><strong>test <em>test</em></strong></li>
+<li><strong><em>test</em> test</strong></li>
+<li><em><strong>test</strong> test</em></li>
+<li><strong><em>test</em> test</strong></li>
+<li><strong>test <em>test</em></strong></li>
+<li><em>test <strong>test</strong></em></li>
 </ol>
 
 <p>Incorrect nesting:</p>
@@ -30,6 +44,10 @@
 <li><em>test   _test</em>  test_</li>
 <li><strong>test **test</strong> test**</li>
 <li><strong>test __test</strong> test__</li>
+<li>_<strong>some text_</strong></li>
+<li>*<strong>some text*</strong></li>
+<li><strong>_some text</strong>_</li>
+<li>*<strong>some text*</strong></li>
 </ol>
 
 <p>No emphasis:</p>
@@ -81,3 +99,8 @@ Region/Country: __</p>
 <p>_____Cut here_____</p>
 
 <p>____Cut here____</p>
+
+
+<h1>Regression</h1>
+
+<p><em><strong>Note</strong></em>: This <em>is emphasis</em>.</p>

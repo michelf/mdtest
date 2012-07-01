@@ -1,12 +1,12 @@
 ~~~
-Fenced
+<Fenced>
 ~~~
 
 Code block starting and ending with empty lines:
 ~~~
 
 
-Fenced
+<Fenced>
 
 
 ~~~
@@ -14,7 +14,7 @@ Fenced
 Indented code block containing fenced code block sample:
 
 	~~~
-	Fenced
+	<Fenced>
 	~~~
 
 Fenced code block with indented code block sample:
@@ -58,3 +58,30 @@ abbreviation definitions:
 
 *[HTML]: HyperText Markup Language
 ~~~
+
+* In a list item with smalish indent:
+
+  ~~~~~
+  #!/bin/sh
+  #
+  # Preload driver binary
+  LD_PRELOAD=libusb-driver.so $0.bin $*
+  ~~~~~
+  
+With HTML content.
+  
+~~~~~
+<b>bold</b>
+~~~~~
+
+Bug with block level elements in this case:
+~~~
+  <div>
+  </div>
+~~~
+
+Indented code block of a fenced code block:
+
+    ~~~
+	haha!
+	~~~
