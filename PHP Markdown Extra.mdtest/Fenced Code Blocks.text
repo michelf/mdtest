@@ -48,7 +48,7 @@ Fenced code block with Markdown header and horizontal rule:
 ---
 ~~~
 
-Fenced code block with link definitions, footnote definition and 
+Fenced code block with link definitions, footnote definition and
 abbreviation definitions:
 
 ~~~
@@ -67,9 +67,9 @@ abbreviation definitions:
   # Preload driver binary
   LD_PRELOAD=libusb-driver.so $0.bin $*
   ~~~~~
-  
+
 With HTML content.
-  
+
 ~~~~~
 <b>bold</b>
 ~~~~~
