@@ -1,0 +1,67 @@
+Now for some fenced-with-language tests.
+
+A PHP sample:
+
+~~~php
+if ($_GET['test'] == "value") {
+	echo 'Good';
+}
+~~~
+
+Okay, how about with some HTML ebdedded:
+
+~~~    php
+if (($_GET['test'] == "value") && ($x == 2)) {
+	echo '&quot;<strong>Great</strong> <em>work</em>,&quot; she said.';
+}
+~~~
+
+How about with the PHP open/close markers?
+
+~~~ php
+<?php
+	echo "Hello, world?";
+?>
+~~~
+
+PHP open/close markers, inline:
+
+~~~ php
+Name: <input type="text" name="name" value="<?php echo $_POST['name']; ?>">
+~~~
+
+PHP open/close markers, inline (non-PHP fanced):
+
+~~~
+Name: <input type="text" name="name" value="<?php echo $_POST['name']; ?>">
+~~~
+
+What about HTML... with HTML?
+
+~~~ html
+<div id="some-div">
+	<strong>Hello</strong>, <em>world</em>!
+</div>
+~~~
+
+Normal fences, but with inline HTML:
+
+~~~
+Html looks like this: <strong>bold text</strong>
+~~~
+
+Normal fences, All HTML:
+
+~~~
+<div id="some-div">
+	<strong>Hello</strong>, <em>world</em>!
+</div>
+~~~
+
+Normal fences, PHP with open/close markers:
+
+~~~
+<?php
+	echo "Hello, world?";
+?>
+~~~

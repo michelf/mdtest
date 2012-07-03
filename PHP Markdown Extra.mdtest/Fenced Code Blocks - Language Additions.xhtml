@@ -1,0 +1,58 @@
+<p>Now for some fenced-with-language tests.</p>
+
+<p>A PHP sample:</p>
+
+<pre class="prettyprint"><code class="lang-php">if ($_GET['test'] == "value") {
+    echo 'Good';
+}
+</code></pre>
+
+<p>Okay, how about with some HTML ebdedded:</p>
+
+<pre class="prettyprint"><code class="lang-php">if (($_GET['test'] == "value") &amp;&amp; ($x == 2)) {
+    echo '&amp;quot;&lt;strong&gt;Great&lt;/strong&gt; &lt;em&gt;work&lt;/em&gt;,&amp;quot; she said.';
+}
+</code></pre>
+
+<p>How about with the PHP open/close markers?</p>
+
+<pre class="prettyprint"><code class="lang-php">&lt;?php
+    echo &quot;Hello, world?&quot;;
+?&gt;
+</code></pre>
+
+<p>PHP open/close markers, inline:</p>
+
+<pre class="prettyprint"><code class="lang-php">Name: &lt;input type=&quot;text&quot; name=&quot;name&quot; value=&quot;&lt;?php echo $_POST['name']; ?&gt;&quot;&gt;
+</code></pre>
+
+<p>PHP open/close markers, inline (non-PHP fanced):</p>
+
+<pre><code>Name: &lt;input type=&quot;text&quot; name=&quot;name&quot; value=&quot;&lt;?php echo $_POST['name']; ?&gt;&quot;&gt;
+</code></pre>
+
+<p>What about HTML... with HTML?</p>
+
+<pre class="prettyprint"><code class="lang-html">&lt;div id=&quot;some-div&quot;&gt;
+    &lt;strong&gt;Hello&lt;/strong&gt;, &lt;em&gt;world&lt;/em&gt;!
+&lt;/div&gt;
+</code></pre>
+
+<p>Normal fences, but with inline HTML:</p>
+
+<pre><code>Html looks like this: &lt;strong&gt;bold text&lt;/strong&gt;
+</code></pre>
+
+<p>Normal fences, All HTML:</p>
+
+<pre><code>&lt;div id=&quot;some-div&quot;&gt;
+    &lt;strong&gt;Hello&lt;/strong&gt;, &lt;em&gt;world&lt;/em&gt;!
+&lt;/div&gt;
+</code></pre>
+
+<p>Normal fences, PHP with open/close markers:</p>
+
+<pre><code>&lt;?php
+    echo &quot;Hello, world?&quot;;
+?&gt;
+</code></pre>
