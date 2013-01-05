@@ -49,7 +49,7 @@ footnote test[^reference].
 	This footnote has a footnote of its own.[^nested]
 
 [^nested]:
-	This footnote should appear even though as it is refered
+	This footnote should appear even though it is referenced
 	from another footnote. But [^reference] should be litteral
 	since the footnote with that name has already been used.
 
