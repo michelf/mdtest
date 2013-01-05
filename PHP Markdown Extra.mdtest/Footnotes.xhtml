@@ -14,8 +14,7 @@
 <p>This paragraph should not have a footnote marker since 
 the footnote is undefined.[^3]</p>
 
-<p>This paragraph should not have a footnote marker since 
-the footnote has already been used before.[^1]</p>
+<p>This paragraph has a second footnote marker to footnote number one.<sup id="fnref2:1"><a href="#fn:1" rel="footnote">5</a></sup></p>
 
 <p>This paragraph links to a footnote with plenty of 
 block-level content.<sup id="fnref:block"><a href="#fn:block" rel="footnote">8</a></sup></p>
@@ -48,7 +47,7 @@ footnote test<sup id="fnref:reference"><a href="#fn:reference" rel="footnote">9<
 </li>
 
 <li id="fn:1">
-<p>Content for fifth footnote.&#160;<a href="#fnref:1" rev="footnote">&#8617;</a></p>
+<p>Content for fifth footnote.&#160;<a href="#fnref:1" rev="footnote">&#8617;</a> <a href="#fnref2:1" rev="footnote">&#8617;</a></p>
 </li>
 
 <li id="fn:2">
@@ -87,7 +86,7 @@ three lines, with some span-level markup like
 </li>
 
 <li id="fn:nested">
-<p>This footnote should appear even though as it is refered
+<p>This footnote should appear even though it is referenced
 from another footnote. But [^reference] should be litteral
 since the footnote with that name has already been used.&#160;<a href="#fnref:nested" rev="footnote">&#8617;</a></p>
 </li>
