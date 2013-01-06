@@ -1,0 +1,6 @@
+~~~ .html
+<ul>
+    <li>Code block first in file</li>
+    <li>doesn't work under some circumstances</li>
+</ul>
+~~~
