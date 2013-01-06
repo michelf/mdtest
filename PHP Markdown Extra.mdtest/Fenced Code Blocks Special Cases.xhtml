@@ -3,3 +3,34 @@
     &lt;li>doesn't work under some circumstances&lt;/li>
 &lt;/ul>
 </code></pre>
+
+<p>As above: checking for bad interractions with the HTML block parser:</p>
+
+<pre><code class="html">&lt;div>
+</code></pre>
+
+<p>Some <em>markdown</em><code>formatting</code>.</p>
+
+<pre><code class="html">&lt;/div>
+</code></pre>
+
+<p>Some <em>markdown</em></p>
+
+<pre><code>&lt;div>
+    &lt;html>
+</code></pre>
+
+<pre><code>function test();
+</code></pre>
+
+<div>
+<pre><code>&lt;html&gt;
+    &lt;title&gt;
+</code></pre>
+</div>
+
+<div>
+<pre><code>&lt;html&gt;
+    &lt;title&gt;
+</code></pre>
+</div>
