@@ -85,3 +85,31 @@ Indented code block of a fenced code block:
     ~~~
 	haha!
 	~~~
+
+With class:
+  
+~~~~~html
+<b>bold</b>
+~~~~~
+  
+~~~~~ html
+<b>bold</b>
+~~~~~
+  
+~~~~~.html
+<b>bold</b>
+~~~~~
+  
+~~~~~ .html
+<b>bold</b>
+~~~~~
+
+With extra attribute block:
+
+~~~~~{.html}
+<b>bold</b>
+~~~~~
+  
+~~~~~ {.html #codeid}
+<b>bold</b>
+~~~~~
