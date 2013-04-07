@@ -39,3 +39,12 @@ function test();
     <title>
 ~~~
 </div>
+
+Two code blocks with no blank line between them:
+
+~~~
+<div>
+~~~
+~~~
+<div>
+~~~
