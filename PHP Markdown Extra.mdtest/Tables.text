@@ -102,3 +102,12 @@ Header 1  | Header 2  |
 Cell      | Cell      |
 Cell      | Cell      
 
+* * *
+
+# Too many pipes in rows
+
+| Header 1  | Header 2  |
+| --------- 
+| Cell      | Cell      | Extra cell? |
+| Cell      | Cell      | Extra cell? |
+
