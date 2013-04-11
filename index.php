@@ -50,7 +50,10 @@ $diff = isset($_GET['diff']);
 		$files = glob(dirname(__FILE__). "/Implementations/*");
 		foreach ($files as $file) {
 			$name = htmlspecialchars(basename($file));
-			if (is_executable($file) && substr($file, -4, 4) != '.php') {
+			if (is_dir($file)) {
+				// skip directories
+				continue;
+			} else if (is_executable($file) && substr($file, -4, 4) != '.php') {
 				// Script
 				$value = "s-$name";
 			} else if (substr($file, -4, 4) == '.php') {
