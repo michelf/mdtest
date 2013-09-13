@@ -78,6 +78,12 @@ markdown:
 
 markdown-extra:
 	./mdtest.php -l "wrapper.php" -f "MarkdownExtra" -t "Markdown" -t "PHP Markdown" -t "PHP Markdown Extra" -n
+
+markdown-not-normalized:
+	./mdtest.php -l "wrapper.php" -f "Markdown" -t "Markdown" -t "PHP Markdown"
+
+markdown-extra-not-normalized:
+	./mdtest.php -l "wrapper.php" -f "MarkdownExtra" -t "Markdown" -t "PHP Markdown" -t "PHP Markdown Extra"
 End-of-message
 ```
 
