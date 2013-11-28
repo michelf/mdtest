@@ -21,17 +21,17 @@ if unspecified.
 
 ### Markdown.mdtest
 
-The *Markdown* testsuite folder contains the original Markdown test suite from
+The *Markdown* test suite folder contains the original Markdown test suite from
 MarkdownTest. It was written by John Gruber to test Markdown.pl.
 
 ### PHP Markdown.mdtest
 
-The *PHP Markdown* testsuite folder contains complementary tests for 
+The *PHP Markdown* test suite folder contains complementary tests for 
 PHP Markdown not included in the Markdown test suite.
 
 ### PHP Markdown Extra.mdtest
 
-The *PHP Markdown Extra* testsuite folder contains tests for features added
+The *PHP Markdown Extra* test suite folder contains tests for features added
 to PHP Markdown Extra and not present in regular Markdown.
 
 
@@ -50,17 +50,17 @@ To run MDTest you need a Markdown parser. You can supply the parser as a functio
 
 For instance, if you are testing PHP Markdown, use this command:
 
-	./mdtest.php -l path/to/markdown.php -f Markdown
+	./mdtest.php -f \\Michelf\\Markdown::defaultTransform
 
-This will make MDTest import the `markdown.php` file and call the `Markdown` global function.
+This will make MDTest autoload the `\Michelf\Markdown` class and call its `defaultTransform` static method. (Note that you need to escape backslashes on the shell by prefixing them with another backslash. You may also want to run `git submodule init` to get PHP Markdown Lib installed in your Implementations folder.)
 
-For external scripts to execute, instead of passing a library file name and a function to call, you pass the path to the script instead:
+For external scripts that need to run as a separate process you pass the path to the script instead:
 
 	./mdtest.php -s path/to/parser-executable
 
-By default, MDTest will run tests from all folders with a `.testsuite` extension it can find in the current directory.
+By default, MDTest will run tests from all folders with a `.mdtest` extension it can find in the current directory. If no script or function is specified, it tries to 
 
-Use the `-h` option to get a complete list of available options.
+Use the `-?` option to get a complete list of available options.
 
 ### Web Interface
 
