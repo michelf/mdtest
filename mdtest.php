@@ -5,7 +5,7 @@
 #
 # MDTest
 # Copyright (c) 2007 Michel Fortin
-# <http://www.michelf.com/>
+# <http://michelf.ca/>
 #
 # Derived from Markdown Test
 # Copyright (c) 2004 John Gruber

@@ -4,7 +4,7 @@
 #
 # MDTest Web Interface
 # Copyright (c) 2007 Michel Fortin
-# <http://www.michelf.com/>
+# <http://michelf.ca/>
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -97,7 +97,7 @@ ob_end_flush();
 ?></pre>
 
 <p><small>MDTest<br />
-Copyright (c) 2007 <a href="http://www.michelf.com/">Michel Fortin</a></small></p>
+Copyright (c) 2007 <a href="http://michelf.ca/">Michel Fortin</a></small></p>
 
 <p><small>Derived from Markdown Test<br />
 Copyright (c) 2004 <a href="http://daringfireball.net/">John Gruber</a></small></p>
