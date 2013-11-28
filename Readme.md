@@ -21,21 +21,21 @@ but is strucutred in a way that can test and benchmark various implementations.
 Test Suites
 -----------
 
-MDTest splits its tests into testsuite folders. The MDTest command line tool
+MDTest splits its tests into "mdtest" folders. The MDTest command line tool
 will run the test for the specified test suite if specified, or all of them
 if unspecified.
 
-### Markdown.testsuite
+### Markdown.mdtest
 
 The *Markdown* testsuite folder contains the original Markdown test suite from
 MarkdownTest. It was written by John Gruber to test Markdown.pl.
 
-### PHP Markdown.testsuite
+### PHP Markdown.mdtest
 
 The *PHP Markdown* testsuite folder contains complementary tests for 
 PHP Markdown not included in the Markdown test suite.
 
-### PHP Markdown Extra.testsuite
+### PHP Markdown Extra.mdtest
 
 The *PHP Markdown Extra* testsuite folder contains tests for features added
 to PHP Markdown Extra and not present in regular Markdown.
@@ -49,6 +49,8 @@ This library package should be run with PHP 5.3 or later.
 
 Usage
 -----
+
+### Command Line
 
 To run MDTest you need a Markdown parser. You can supply the parser as a function to call after loading a PHP library or as an executable script taking input from STDIN and emiting its output to STDOUT.
 
@@ -65,6 +67,10 @@ For external scripts to execute, instead of passing a library file name and a fu
 By default, MDTest will run tests from all folders with a `.testsuite` extension it can find in the current directory.
 
 Use the `-h` option to get a complete list of available options.
+
+### Web Interface
+
+The `index.php` file provides a rudimentary web interface for MDTest. It let you choose from a list of implementations in the Implementaiton folder and displays the output of the test script.
 
 
 Bugs
