@@ -4,7 +4,7 @@
 # MDTest -- Run tests for Markdown implementations
 #
 # MDTest
-# Copyright (c) 2007 Michel Fortin
+# Copyright (c) 2007-2013 Michel Fortin
 # <http://michelf.ca/>
 #
 # Derived from Markdown Test
@@ -30,14 +30,12 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #
 
-define( 'MDTEST_VERSION', "1.1" ); # Tue 26 Sep 2007
-
 $version = false;
 $test_dirs = null;
-$lib = dirname(__FILE__). "/Implementations/markdown.php";
-$func = "Markdown";
+$lib = null;
+$func = "/Michelf/MarkdownParser::defaultTransform";
 $script = null;
-$normalize = false;
+$normalize = true;
 $show_diff = false;
 
 
@@ -57,19 +55,24 @@ if (in_array('-?', $argv) || isset($args['h'])) {
 	echo "MDTest Usage\n";
 	echo "============\n";
 	echo "\n";
-	echo "$argv[0] [-dnvh] [-l library_path [-f function]] [-t test_dir]*\n";
-	echo "$argv[0] [-dnvh] [-s script_path] [-t test_dir]*  \n";
+	echo "$argv[0] [-drvh] [-l library_path] [-f function] [-t test_dir]*  \n";
+	echo "$argv[0] [-drvh] [-s script_path] [-t test_dir]*  \n";
 	echo "\n";
 	echo " Options      | Description\n";
 	echo " -------      | -----------\n";
-	echo " -n           | normalize HTML output before compare\n";
 	echo " -d           | show a diff of output vs. expected output\n";
-	echo " -l library   | php library to load (like markdown.php)\n";
-	echo " -f function  | php function to call (like Markdown)\n";
+	echo " -l library   | php library to load, or root dir for PSR-0 class autoloading\n";
+	echo " -f function  | php function to call (like MarkdownParser::defaultTransform)\n";
 	echo " -s script    | script to execute (like Markdown.pl)\n";
 	echo " -t test_dir  | testsuite directory to use\n";
+	echo " -r           | compare using use raw (non-normalized) HTML output\n";
 	echo " -v           | display MDTest version\n";
 	echo " -h           | show this help\n";
+	echo "\n\n";
+	echo "Note: if the library path parameter is omitted, all folders ending with\n";
+	echo ".phplib extension in the Implementation become a root for PSR-0 class\n";
+	echo "autoloading. If it points to a directory, that directory will be used as \n";
+	echo "the root for class autoloading.\n";
 	echo "\n";
 	exit;
 }
@@ -79,7 +82,7 @@ if (isset($args['f']))  $func = $args['f'];
 if (isset($args['s']))  $script = $args['s'];
 if (isset($args['t']))  $test_dirs = $args['t'];
 if (isset($args['d']))  $show_diff = true;
-if (isset($args['n']))  $normalize = true;
+if (isset($args['r']))  $normalize = false;
 
 if (isset($args['l']) && isset($args['s'])) {
 	exit("$argv[0]: cannot parse with both a script and library.\n");
@@ -93,25 +96,41 @@ if (!isset($script)) {
 		exit("$argv[0]: only one library can be specified.\n");
 	}
 	if (is_array($func)) {
-		exit("$argv[0]: only one function can be specified.\n");
+		exit("$argv[0]: only one function or static method can be specified.\n");
 	}
-	if (!is_file($lib)) {
+	
+	if ($lib === null) {
+		# Install PSR-0-compatible class autoloader for include path
+		spl_autoload_register(function($class){
+			require preg_replace('{\\\\|_(?!.*\\\\)}', DIRECTORY_SEPARATOR, ltrim($class, '\\')).'.php';
+		});
+		# Use all .phplib folders in Implementations unless lib directory specified
+		$include_list = glob(dirname(__FILE__) . '/Implementations/*.phplib', GLOB_ONLYDIR);
+		# Add every phplib directories in Implementation to include path
+		foreach ($include_list as $include_root) {
+			set_include_path(get_include_path() . PATH_SEPARATOR . $include_root);
+		}
+	} else if (is_dir($lib)) {
+		# Install PSR-0-compatible class autoloader using $lib as root
+		spl_autoload_register(function($class){
+			require DIRECTORY_SEPARATOR .
+				preg_replace('{\\\\|_(?!.*\\\\)}', DIRECTORY_SEPARATOR, ltrim($class, '\\')).'.php';
+		});
+	} else if (!is_file($lib)) {
 		exit("$argv[0]: library '$lib' does not exist.\n");
 	}
 	
-	include_once $lib;
-	
-	if (preg_match('/(.*)(::|->)(.*)/', $func, $matches)) {
+	if (preg_match('/^(.*)(::|->)(.*?)$/', $func, $matches)) {
 		$func = array($matches[1], $matches[3]);
 		if (!class_exists($func[0])) {
 			exit("$argv[0]: class '$class' is not available.\n");
 		}
-		if (!is_callable($func)) {
-			exit("$argv[0]: method '$func[1]' is not defined for class '$func[0]'.\n");
-		}
 		if ($matches[2] == '->') {
 			$class = $func[0];
 			$func[0] = new $class;
+		}
+		if (!is_callable($func)) {
+			exit("$argv[0]: method '$func[1]' is not defined for class '$func[0]'.\n");
 		}
 	}
 	else if (!is_callable($func)) {

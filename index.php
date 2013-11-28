@@ -22,20 +22,21 @@
 #
 
 $impl = isset($_GET['impl']) ? $_GET['impl'] : "l-markdown.php";
-$normalize = isset($_GET['normalize']);
+$raw = isset($_GET['raw']);
 $diff = isset($_GET['diff']);
+
+header("Content-Type: text/html; charset=utf-8");
 
 ?>
 <!DOCTYPE html>
 
 <html>
 <head>
-<title></title>
+<title>MDTest</title>
 <style>
 	body { font-family: Palatino, "Palatino Linotype", serif; margin: 1ex 1em; }
 	form { background: #eed; margin: -1ex -1em 0 -1em; padding: 1ex 1em; }
 	h1 { font-style: italic; }
-	h1 span { font-size: 75%; }
 	label { font: 80% "Lucida Grande", Tahoma, sans-serif; margin-right: 1em; }
 	input[type=submit] { min-width: 4em; }
 </style>
@@ -47,15 +48,23 @@ $diff = isset($_GET['diff']);
 	<label>Implementation:
 		<select name="impl">
 <?php
+		$all_options = array();
 		$files = glob(dirname(__FILE__). "/Implementations/*");
 		foreach ($files as $file) {
 			$name = htmlspecialchars(basename($file));
-			if (is_executable($file) && substr($file, -4, 4) != '.php') {
+			if (is_executable($file) && !is_dir($file) && substr($file, -4, 4) != '.php') {
 				// Script
 				$value = "s-$name";
-			} else if (substr($file, -4, 4) == '.php') {
+				$all_options[] = $value;
+			} else if (!is_dir($file) && substr($file, -4, 4) == '.php') {
 				// PHP Lib
 				$value = "l-$name";
+				$all_options[] = $value;
+			} else if (!is_dir($file) && substr($file, -8, 8) == '.phpcall') {
+				// PHP Call
+				$funcname = file_get_contents($file);
+				$value = "f-$funcname";
+				$all_options[] = $value;
 			} else {
 				continue;
 			}
@@ -67,29 +76,38 @@ $diff = isset($_GET['diff']);
 ?>
 		</select>
 	</label>
-	<label><input type="checkbox" name="normalize"<?php echo isset($_GET['normalize']) ? " checked" : "" ?> /> Normalize Output</label> 
-	<label><input type="checkbox" name="diff"<?php echo isset($_GET['diff']) ? " checked" : "" ?> /> Show differences</label>
+	<label><input type="checkbox" name="raw"<?php echo isset($_GET['raw']) ? " checked" : "" ?> /> Compare raw output</label> 
+	<label><input type="checkbox" name="diff"<?php echo isset($_GET['diff']) ? " checked" : "" ?> /> Show diff</label>
 	<input type="submit" value="Test">
 </div>
 </form>
 
-<h1><span>MD</span>Test Results</h1>
+<h1>MDTest Results</h1>
 
 <pre><?php
 
 $options = "";
 
-if ($impl) {
-	$impl_arg = escapeshellarg(
-		dirname(__FILE__). "/Implementations/". substr($impl, 2));
-	if ($impl{0} == 's') {
-		$options .= "-s $impl_arg";
-	} else if ($impl{0} == 'l') {
-		$options .= "-l $impl_arg";
+# Checking that value of $impl is in $all_options to protect against
+# function call injection attacks.
+if ($impl && array_search($impl, $all_options) !== FALSE) {
+	if ($impl{0} == 'f') {
+		$impl_arg = escapeshellarg(substr($impl, 2));
+		$options .= "-f $impl_arg";
+	} else {
+		$impl_arg = escapeshellarg(
+			dirname(__FILE__). "/Implementations/". substr($impl, 2));
+		if ($impl{0} == 's') {
+			$options .= "-s $impl_arg";
+		} else if ($impl{0} == 'l') {
+			$options .= "-l $impl_arg";
+		} else if ($impl{0} == 'f') {
+			$options .= "-f $impl_arg";
+		}
 	}
 }
 if ($diff)  $options .= " -d";
-if ($normalize)  $options .= " -n";
+if ($raw)  $options .= " -r";
 
 ob_start('htmlspecialchars', 64);
 system("'". dirname(__FILE__). "/mdtest.php' $options");
@@ -97,10 +115,10 @@ ob_end_flush();
 ?></pre>
 
 <p><small>MDTest<br />
-Copyright (c) 2007 <a href="http://michelf.ca/">Michel Fortin</a></small></p>
+Copyright © 2007-2013 <a href="http://michelf.ca/">Michel Fortin</a></small></p>
 
 <p><small>Derived from Markdown Test<br />
-Copyright (c) 2004 <a href="http://daringfireball.net/">John Gruber</a></small></p>
+Copyright © 2004 <a href="http://daringfireball.net/">John Gruber</a></small></p>
 
 </body>
 </html>
