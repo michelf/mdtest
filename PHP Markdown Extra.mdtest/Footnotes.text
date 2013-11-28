@@ -18,7 +18,7 @@ Some paragraph with a footnote[^1], and another[^2].
     three lines, with some span-level markup like
     _emphasis_, a [link][].
 
-[link]: http://www.michelf.com/
+[link]: http://michelf.ca/
 
 Another paragraph with a named footnote[^fn-name].
 
