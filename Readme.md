@@ -56,13 +56,13 @@ To run MDTest you need a Markdown parser. You can supply the parser as a functio
 
 For instance, if you are testing PHP Markdown, use this command:
 
-	./mdtest.php -n -l path/to/markdown.php -f Markdown
+	./mdtest.php -l path/to/markdown.php -f Markdown
 
 This will make MDTest import the `markdown.php` file and call the `Markdown` global function.
 
 For external scripts to execute, instead of passing a library file name and a function to call, you pass the path to the script instead:
 
-	./mdtest.php -n -s path/to/parser-executable
+	./mdtest.php -s path/to/parser-executable
 
 By default, MDTest will run tests from all folders with a `.testsuite` extension it can find in the current directory.
 
