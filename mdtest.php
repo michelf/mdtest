@@ -116,7 +116,9 @@ if (!isset($script)) {
 			require DIRECTORY_SEPARATOR .
 				preg_replace('{\\\\|_(?!.*\\\\)}', DIRECTORY_SEPARATOR, ltrim($class, '\\')).'.php';
 		});
-	} else if (!is_file($lib)) {
+	} else if (is_file($lib)) {
+		include_once $lib;
+	} else {
 		exit("$argv[0]: library '$lib' does not exist.\n");
 	}
 	
