@@ -58,3 +58,13 @@ footnote test[^reference].
 Testing unusual footnote name[^1$^!"'].
 
 [^1$^!"']: Haha!
+
+ - - -
+ 
+Footnotes mixed with images[^image-mixed]
+![1800 Travel][img6]
+![1830 Travel][img7]
+
+[img6]: images/MGR-1800-travel.jpeg "Travel Speeds in 1800"
+[^image-mixed]: Footnote Content
+[img7]: images/MGR-1830-travel.jpeg "Travel Speeds in 1830"
