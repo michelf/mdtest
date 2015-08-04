@@ -113,3 +113,11 @@ With extra attribute block:
 ````` {.html #codeid}
 <b>bold</b>
 `````
+
+````` .html{.bold}
+<div>
+`````
+  
+`````` .html {#codeid}
+</div>
+``````

@@ -115,9 +115,9 @@ With extra attribute block:
 ~~~~~
 
 ~~~~~ .html{.bold}
-<b>bold</b>
+<div>
 ~~~~~
   
 ~~~~~ .html {#codeid}
-<b>bold</b>
+</div>
 ~~~~~
