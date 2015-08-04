@@ -113,3 +113,11 @@ With extra attribute block:
 ~~~~~ {.html #codeid}
 <b>bold</b>
 ~~~~~
+
+~~~~~ .html{.bold}
+<b>bold</b>
+~~~~~
+  
+~~~~~ .html {#codeid}
+<b>bold</b>
+~~~~~
