@@ -84,6 +84,12 @@ Some text
 
 <p markdown="1">_Hello_ _world_</p>
 
+<p markdown="1" class="poem">
+line 1  
+line 2  
+line 3
+</p>
+
 ## Preserving attributes and tags on more than one line:
 
 <p class="test" markdown="1" 
