@@ -8,8 +8,8 @@ Introduction
 ------------
 
 MDTest is a Markdown test suite derived from the older MarkdownTest by 
-John Gruber. MDTest is primarily used for the developement of PHP Markdown
-but is strucutred in a way that can test and benchmark various implementations.
+John Gruber. MDTest is primarily used for the development of PHP Markdown
+but is structured in a way so that it can test and benchmark various implementations.
 
 
 Test Suites
@@ -70,7 +70,7 @@ The `index.php` file provides a rudimentary web interface for MDTest. It let you
 Bugs
 ----
 
-Please file bugs in the Github issue tracker.
+Please file bugs in the GitHub issue tracker.
 
 
 Copyright
