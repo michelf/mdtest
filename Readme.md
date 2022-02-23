@@ -8,8 +8,8 @@ Introduction
 ------------
 
 MDTest is a Markdown test suite derived from the older MarkdownTest by 
-John Gruber. MDTest is primarily used for the developement of PHP Markdown
-but is strucutred in a way that can test and benchmark various implementations.
+John Gruber. MDTest is primarily used for the development of PHP Markdown
+but is structured in a way that can test and benchmark various implementations.
 
 
 Test Suites
@@ -46,7 +46,7 @@ Usage
 
 ### Command Line
 
-To run MDTest you need a Markdown parser. You can supply the parser as a function to call after loading a PHP library or as an executable script taking input from STDIN and emiting its output to STDOUT.
+To run MDTest you need a Markdown parser. You can supply the parser as a function to call after loading a PHP library or as an executable script taking input from STDIN and emitting its output to STDOUT.
 
 For instance, if you are testing PHP Markdown, use this command:
 
@@ -64,7 +64,7 @@ Use the `-?` option to get a complete list of available options.
 
 ### Web Interface
 
-The `index.php` file provides a rudimentary web interface for MDTest. It let you choose from a list of implementations in the Implementaiton folder and displays the output of the test script.
+The `index.php` file provides a rudimentary web interface for MDTest. It lets you choose from a list of implementations in the Implementation folder and displays the output of the test script.
 
 
 Bugs
